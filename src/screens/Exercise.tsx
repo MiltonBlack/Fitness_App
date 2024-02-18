@@ -5,6 +5,7 @@ import {
   TextInput,
   StyleSheet,
   TouchableOpacity,
+  // Alert
 } from 'react-native';
 import DatePicker from 'react-native-datepicker';
 
@@ -50,13 +51,13 @@ const Exercise: React.FC<ExerciseProps> = ({ navigation }) => {
       .then((response) => response.json())
       .then((result) => {
         if (result.message === 'Activity created!') {
-          alert(result.message);
+          // Alert(result.message);
           navigation.navigate('Today', {
             username: navigation.state.params.username,
             token: navigation.state.params.token,
           });
         } else {
-          alert(result.message);
+          // Alert(result.message);
         }
       });
   };
