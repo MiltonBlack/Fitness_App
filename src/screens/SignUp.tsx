@@ -9,9 +9,9 @@ const SignUpScreen: React.FC = () => {
 
   const handleSignUp = () => {
     // Implement signup logic here
-    console.log('Name:', name);
-    console.log('Email:', email);
-    console.log('Password:', password);
+    // console.log('Name:', name);
+    // console.log('Email:', email);
+    // console.log('Password:', password);
   };
 
   return (

@@ -8,9 +8,9 @@ const ProfileScreen = () => {
   
   const saveProfile = () => {
     // Your logic to save the profile data
-    console.log('Name:', name);
-    console.log('Email:', email);
-    console.log('Password:', password);
+    // console.log('Name:', name);
+    // console.log('Email:', email);
+    // console.log('Password:', password);
   };
 
   return (
@@ -47,11 +47,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     padding: 20,
+    color: "black"
   },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 20,
+    color: "black"
   },
   input: {
     width: '100%',
@@ -61,6 +63,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     marginBottom: 10,
     padding: 10,
+    color: "black"
   },
 });
 
