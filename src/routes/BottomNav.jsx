@@ -10,8 +10,25 @@ import CreatePost from '../screens/CreatePost';
 
 const Tab = createMaterialBottomTabNavigator();
 const BottomNav = () => {
+
+    const screenOptions = {
+        // tabBarShowLabel: false,
+        headerShown: false,
+        tabBarStyle: {
+            position: "absolute",
+            bottom: 0,
+            right: 0,
+            left: 0,
+            elevation: 0,
+            height: 60,
+            background: "#faa"
+        }
+    }
+
     return (
-        <Tab.Navigator>
+        <Tab.Navigator
+            // screenOptions={screenOptions}
+        >
             <Tab.Screen name='home'
                 component={Home}
                 options={{
@@ -23,7 +40,6 @@ const BottomNav = () => {
                                     size={24}
                                     color={focused ? '#A0015D' : 'grey'}
                                 />
-                                {/* <Text style={{ fontSize: 12, color: 'grey' }}>Chat</Text> */}
                             </View>
                         )
                     }
@@ -40,7 +56,7 @@ const BottomNav = () => {
                                     color={focused ? '#A0015D' : 'grey'}
                                 />
                                 {/* <Text style={{ fontSize: 12, color: 'grey' }}>Feed</Text> */}
-                            {/* </View>
+            {/* </View>
                         )
                     }
                 }} />
@@ -79,7 +95,6 @@ const BottomNav = () => {
                                     size={24}
                                     color={focused ? '#A0015D' : 'grey'}
                                 />
-                                {/* <Text style={{ fontSize: 12, color: 'grey' }}>Report</Text> */}
                             </View>
                         )
                     }
@@ -95,7 +110,6 @@ const BottomNav = () => {
                                     size={24}
                                     color={focused ? '#A0015D' : 'grey'}
                                 />
-                                {/* <Text style={{ fontSize: 12, color: 'grey' }}>Profile</Text> */}
                             </View>
                         )
                     }

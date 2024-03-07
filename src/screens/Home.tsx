@@ -1,51 +1,57 @@
 import { Image, StyleSheet, Text, TouchableOpacity, ScrollView } from 'react-native'
 import React from 'react'
+import { NavigationProp } from '@react-navigation/native'
 
-const Home = () => {
+const Home = ({ navigation }: any) => {
+
+  function Navigate(route: string) {
+    navigation.navigate(`${route}`);
+  }
+  
   return (
     <ScrollView style={styles.container}>
-    <Text style={styles.title}>Home Workouts</Text>
-    <TouchableOpacity style={styles.workoutCard}>
-      <Image
-        source={require('../assets/images/shoulders.jpg')}
-        style={styles.workoutImage}
-      />
-      <Text style={styles.workoutTitle}>Push-ups</Text>
-      <Text style={styles.workoutDescription}>Target: Chest, Shoulders, Triceps</Text>
-    </TouchableOpacity>
-    <TouchableOpacity style={styles.workoutCard}>
-      <Image
-        source={require('../assets/images/glutes-1.png')}
-        style={styles.workoutImage}
-      />
-      <Text style={styles.workoutTitle}>Squats</Text>
-      <Text style={styles.workoutDescription}>Target: Quads, Hamstrings, Glutes</Text>
-    </TouchableOpacity>
-    <TouchableOpacity style={styles.workoutCard}>
-      <Image
-        source={require('../assets/images/muscles.jpg')}
-        style={styles.workoutImage}
-      />
-      <Text style={styles.workoutTitle}>Plank</Text>
-      <Text style={styles.workoutDescription}>Target: Core muscles</Text>
-    </TouchableOpacity>
-    <TouchableOpacity style={styles.workoutCard}>
-      <Image
-        source={require('../assets/images/muscles.jpg')}
-        style={styles.workoutImage}
-      />
-      <Text style={styles.workoutTitle}>Plank</Text>
-      <Text style={styles.workoutDescription}>Target: Butt, Hips and Back</Text>
-    </TouchableOpacity>
-    <TouchableOpacity style={styles.workoutCard}>
-      <Image
-        source={require('../assets/images/yoga.jpeg')}
-        style={styles.workoutImage}
-      />
-      <Text style={styles.workoutTitle}>Plank</Text>
-      <Text style={styles.workoutDescription}>Target: Yoga</Text>
-    </TouchableOpacity>
-  </ScrollView>
+      <Text style={styles.title}>Home Workouts</Text>
+      <TouchableOpacity style={styles.workoutCard} onPress={() => Navigate('pushups')}>
+        <Image
+          source={require('../assets/images/shoulders.jpg')}
+          style={styles.workoutImage}
+        />
+        <Text style={styles.workoutTitle}>Push-ups</Text>
+        <Text style={styles.workoutDescription}>Target: Chest, Shoulders, Triceps</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.workoutCard} onPress={() => Navigate('squats')}>
+        <Image
+          source={require('../assets/images/glutes-1.jpg')}
+          style={styles.workoutImage}
+        />
+        <Text style={styles.workoutTitle}>Squats</Text>
+        <Text style={styles.workoutDescription}>Target: Quads, Hamstrings, Glutes</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.workoutCard} onPress={() => Navigate('planks')}>
+        <Image
+          source={require('../assets/images/muscles.jpg')}
+          style={styles.workoutImage}
+        />
+        <Text style={styles.workoutTitle}>Plank</Text>
+        <Text style={styles.workoutDescription}>Target: Core muscles</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.workoutCard} onPress={() => Navigate('buttnhips')}>
+        <Image
+          source={require('../assets/images/ButtnHips.jpg')}
+          style={styles.workoutImage}
+        />
+        <Text style={styles.workoutTitle}>Butt and Hips</Text>
+        <Text style={styles.workoutDescription}>Target: Butt, Hips and Back</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.workoutCard} onPress={() => Navigate('yoga')}>
+        <Image
+          source={require('../assets/images/yoga.jpeg')}
+          style={styles.workoutImage}
+        />
+        <Text style={styles.workoutTitle}>Yoga</Text>
+        <Text style={styles.workoutDescription}>Target: Yoga and Flexibility</Text>
+      </TouchableOpacity>
+    </ScrollView>
   )
 }
 
@@ -61,7 +67,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 20,
-    color:'black'
+    color: 'black'
   },
   workoutCard: {
     backgroundColor: 'white',
@@ -80,6 +86,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     marginBottom: 5,
+    color: 'black'
   },
   workoutDescription: {
     fontSize: 14,
