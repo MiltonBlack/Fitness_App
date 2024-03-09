@@ -1,25 +1,22 @@
 import { FlatList, Text, View } from 'react-native'
 import React from 'react'
 import { styles } from '../styles/Category'
-import { IData, data } from '../utils/data'
+import { data } from '../utils/data'
 import Workout from '../components/Workout'
 import WorkoutImg from '../components/WorkoutImg'
 import Seperator from '../components/Seperator'
 
-const Yoga = () => {
-  const renderItem = ({ item }: any) => (
+const ButtNHips = () => {
+  const renderItem = ({ item }) => (
     <Workout item={item} key={item.id} />
   )
-  const keyExtractor = (item: any, idx: number) => {
-    return idx.toString();
-  };
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{flex:1}}>
       <Text style={styles.header}>Push Ups</Text>
       <WorkoutImg />
-      <FlatList data={data} renderItem={renderItem} keyExtractor={keyExtractor} ItemSeparatorComponent={Seperator} />
+      <FlatList data={data} renderItem={renderItem} keyExtractor={data.id} ItemSeparatorComponent={Seperator}/>
     </View>
   )
 }
 
-export default Yoga
+export default ButtNHips

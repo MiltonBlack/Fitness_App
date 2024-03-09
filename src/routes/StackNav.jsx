@@ -10,6 +10,9 @@ import Squats from '../screens/Squats';
 import Planks from '../screens/Planks';
 import ButtNHips from '../screens/ButtNHips';
 import Yoga from '../screens/Yoga';
+import Onboarding from '../screens/Onboarding';
+import Gender from '../screens/Onboarding/Gender';
+import BodyType from '../screens/Onboarding/BodyType';
 
 const Stack = createNativeStackNavigator();
 const StackNav = () => {
@@ -41,6 +44,9 @@ const StackNav = () => {
       <Stack.Screen name='buttnhips' component={ButtNHips} />
       <Stack.Screen name='yoga' component={Yoga} />
       <Stack.Screen name='bottomnav' component={BottomNav} />
+      <Stack.Screen name='gender' component={Gender} />
+      <Stack.Screen name='bodytype' component={BodyType} />
+      <Stack.Screen name='onboarding' component={Onboarding} />
     </Stack.Navigator>
   )
 }

@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 
-const SignUpScreen: React.FC = () => {
+const SignUpScreen: React.FC = ({navigation}: any) => {
+  // const navigation = useNavigation();
   const [name, setName] = useState<string>('');
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
@@ -12,6 +14,7 @@ const SignUpScreen: React.FC = () => {
     // console.log('Name:', name);
     // console.log('Email:', email);
     // console.log('Password:', password);
+    navigation.navigate('login')
   };
 
   return (

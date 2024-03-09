@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
+import { NavigationProp } from '@react-navigation/native';
 
-const LoginScreen: React.FC = () => {
+const LoginScreen: React.FC = ({ navigation }: any) => {
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
 
@@ -9,6 +10,7 @@ const LoginScreen: React.FC = () => {
         // Implement login logic here
         console.log('Email:', email);
         console.log('Password:', password);
+        navigation.navigate('onboarding')
     };
 
     return (

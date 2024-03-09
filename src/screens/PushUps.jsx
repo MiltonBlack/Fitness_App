@@ -1,8 +1,9 @@
-import { View, Text, StyleSheet, ScrollView, FlatList } from 'react-native'
+import { View, Text, StyleSheet, FlatList } from 'react-native'
 import React from 'react'
 import WorkoutImg from '../components/WorkoutImg'
 import Workout from '../components/Workout'
 import Seperator from '../components/Seperator'
+import { styles } from '../styles/Category'
 
 const PushUps = () => {
   const data = [
@@ -50,38 +51,9 @@ const PushUps = () => {
     <View style={{flex:1}}>
       <Text style={styles.header}>Push Ups</Text>
       <WorkoutImg />
-      {/* <ScrollView>
-        <Workout item={data}/>
-        <Seperator/>
-        <Workout item={data}/>
-        <Seperator/>
-        <Workout item={data}/>
-        <Seperator/>
-        <Workout item={data}/>
-        <Seperator/>
-        <Workout item={data}/>
-        <Seperator/>
-        <Workout item={data}/>
-        <Seperator/>
-        <Workout item={data}/>
-        <Seperator/>
-        <Workout item={data}/>
-        <Seperator/>
-        <Workout item={data}/>
-        <Seperator/>
-      </ScrollView> */}
       <FlatList data={data} renderItem={renderItem} keyExtractor={data.id} ItemSeparatorComponent={Seperator}/>
     </View>
   )
 }
 
 export default PushUps
-
-const styles = StyleSheet.create({
-  header: {
-    fontSize: 25,
-    color: "black",
-    marginVertical: 15,
-    paddingHorizontal: 20
-  }
-})

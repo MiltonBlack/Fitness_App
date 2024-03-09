@@ -1,12 +1,10 @@
-import { View, Text, FlatList } from 'react-native'
-import React from 'react'
-import WorkoutImg from '../components/WorkoutImg'
-import Seperator from '../components/Seperator'
-import Workout from '../components/Workout'
-import { styles } from '../styles/Category'
+export interface IData {
+  id: number;
+  image: any;
+  workout: string;
+}
 
-export default function Squats() {
-  const data = [
+export const data: IData[] = [
     {
       id: 1,
       image: require('../assets/images/yoga.jpeg'),
@@ -43,16 +41,3 @@ export default function Squats() {
       workout: 'Abdominal Crunches'
     },
   ]
-
-  const renderItem = ({ item }) => (
-    <Workout item={item} key={item.id} />
-  )
-
-  return (
-    <View style={{flex:1}}>
-      <Text style={styles.header}>Push Ups</Text>
-      <WorkoutImg />
-      <FlatList data={data} renderItem={renderItem} keyExtractor={data.id} ItemSeparatorComponent={Seperator}/>
-    </View>
-  )
-}

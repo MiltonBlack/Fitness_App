@@ -1,29 +1,20 @@
-import { View, Text, Image, Button } from 'react-native'
+import { View, Text, TouchableOpacity } from 'react-native'
 import React from 'react'
+import { styles } from '../../styles/Onboarding'
 
-const Goal = () => {
+const Goal = ({ onSelect }) => {
+  const handleSelect = (selectedFocus) => {
+    onSelect('exerciseFocus', selectedFocus);
+  };
   return (
-    <View>
-      <Text>Your Main Goal</Text>
-      <View>
-        <View>
-          <Text>Loose Weight</Text>
-          <Image/>
-        </View>
-        <View>
-          <Text>Build Muscle</Text>
-          <Image/>
-        </View>
-        <View>
-          <Text>Get Toned</Text>
-          <Image/>
-        </View>
-        <View>
-          <Text>Burn Fat</Text>
-          <Image/>
-        </View>
-      </View>
-      <Button title='Next' />
+    <View style={styles.container}>
+      <Text style={styles.text}>Select your exercise focus:</Text>
+      <TouchableOpacity style={styles.option} onPress={() => handleSelect('Cardio')}>
+        <Text style={styles.optionText}>Cardio</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.option} onPress={() => handleSelect('Strength')}>
+        <Text style={styles.optionText}>Strength</Text>
+      </TouchableOpacity>
     </View>
   )
 }

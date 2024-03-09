@@ -1,13 +1,12 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { View, Text, ImageBackground, StyleSheet } from 'react-native';
 
 const WelcomeScreen = ({ navigation }) => {
-  // useEffect(()=> {
+
     setTimeout(() => {
-      navigation.replace('bottomnav');
+      navigation.replace('signup');
     }, 3000);
-  // }, [])
-  
+
   return (
     <ImageBackground
       source={require('../assets/images/fitness.jpg')}
