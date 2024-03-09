@@ -1,13 +1,13 @@
 import { View, Text, TextInput } from 'react-native'
 import React from 'react'
 
-const Height = () => {
+const Weight = () => {
   return (
     <View>
-      <Text>Height</Text>
+      <Text>Weight</Text>
       <TextInput/>
     </View>
   )
 }
 
-export default Height
+export default Weight

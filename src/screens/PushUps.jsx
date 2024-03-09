@@ -1,10 +1,10 @@
-import { View, Text, FlatList, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, ScrollView, FlatList } from 'react-native'
 import React from 'react'
 import WorkoutImg from '../components/WorkoutImg'
-import Seperator from '../components/Seperator'
 import Workout from '../components/Workout'
+import Seperator from '../components/Seperator'
 
-export default function Squats() {
+const PushUps = () => {
   const data = [
     {
       id: 1,
@@ -42,19 +42,40 @@ export default function Squats() {
       workout: 'Abdominal Crunches'
     },
   ]
-  
+
   const renderItem = ({ item }) => (
     <Workout item={item} key={item.id} />
   )
-
   return (
     <View style={{flex:1}}>
       <Text style={styles.header}>Push Ups</Text>
       <WorkoutImg />
+      {/* <ScrollView>
+        <Workout item={data}/>
+        <Seperator/>
+        <Workout item={data}/>
+        <Seperator/>
+        <Workout item={data}/>
+        <Seperator/>
+        <Workout item={data}/>
+        <Seperator/>
+        <Workout item={data}/>
+        <Seperator/>
+        <Workout item={data}/>
+        <Seperator/>
+        <Workout item={data}/>
+        <Seperator/>
+        <Workout item={data}/>
+        <Seperator/>
+        <Workout item={data}/>
+        <Seperator/>
+      </ScrollView> */}
       <FlatList data={data} renderItem={renderItem} keyExtractor={data.id} ItemSeparatorComponent={Seperator}/>
     </View>
   )
 }
+
+export default PushUps
 
 const styles = StyleSheet.create({
   header: {

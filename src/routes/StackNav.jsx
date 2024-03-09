@@ -46,5 +46,3 @@ const StackNav = () => {
 }
 
 export default StackNav
-
-const styles = StyleSheet.create({})

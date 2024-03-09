@@ -3,7 +3,9 @@ import React from 'react'
 
 const Seperator = () => {
     return (
-        <View style={{ width: '80%', height: 1, backgroundColor: 'black' }}>
+        <View style={{paddingHorizontal: 15}}>
+            <View style={{ width: '100%', height: 1, backgroundColor: 'gray', marginVertical: 8 }}>
+            </View>
         </View>
     )
 }
