@@ -4,7 +4,7 @@ import { styles } from '../../styles/Onboarding'
 
 const Goal = ({ onSelect }) => {
   const handleSelect = (selectedFocus) => {
-    onSelect('exerciseFocus', selectedFocus);
+    onSelect('goal', selectedFocus);
   };
   return (
     <View style={styles.container}>

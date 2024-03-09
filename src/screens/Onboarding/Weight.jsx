@@ -1,12 +1,12 @@
 import { View, Text, TouchableOpacity, Button } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 import { styles } from '../../styles/Onboarding'
 
 const Weight = ({ onSelect }) => {
   const [weight, setWeight] = useState('');
   const handleSelect = (selected) => {
     setWeight(selected);
-    onSelect('gender', selected);
+    onSelect('weight', selected);
   }
   return (
     <View style={styles.container}>

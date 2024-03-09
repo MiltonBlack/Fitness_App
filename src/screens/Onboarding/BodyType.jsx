@@ -6,7 +6,7 @@ const BodyType = ({ onSelect, navigation }) => {
   const [bodyType, setBodyType] = useState('');
   const handleSelect = (selected) => {
     setBodyType(selected);
-    onSelect('gender', selected);
+    onSelect('body', selected);
   }
   return (
     <View style={styles.container}>
@@ -23,7 +23,7 @@ const BodyType = ({ onSelect, navigation }) => {
       <TouchableOpacity style={styles.option} onPress={() => handleSelect('Fat')}>
         <Text style={styles.optionText}>Fat</Text>
       </TouchableOpacity>
-      <Button title='Next' onPress={() => navigation.replace('bottomnav')} />
+      {/* <Button title='Next' onPress={() => navigation.replace('bottomnav')} /> */}
     </View>
   )
 }
