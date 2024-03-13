@@ -1,18 +1,10 @@
 {
-    "shoulders" : [
-        {
-           "id": "1" 
-        },
-        {
-            "id" : "2"
-        }
-    ],
-    "chest" : [
-        {
-           "id": "1" 
-        },
-        {
-            "id" : "2"
-        }
-    ]
+    "name":"John Doe",
+    "age": 30,
+    "isStudent": false,
+    "address" : {
+        "city" : "New York",
+        "country": "USA"
+    },
+    "hobbies": ["reading", "hiking", "photography"]
 }

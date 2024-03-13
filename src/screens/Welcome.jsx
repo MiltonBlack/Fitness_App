@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { View, Text, ImageBackground, StyleSheet } from 'react-native';
+import { useAuth } from '../utils/ContextAPI';
 
 const WelcomeScreen = ({ navigation }) => {
+  const { retrieveUser, data } = useAuth();
 
-    setTimeout(() => {
-      navigation.replace('signup');
-    }, 3000);
+  useEffect(()=> {
+    retrieveUser();
+  },[])
+
+  setTimeout(() => {
+    data !== null ? navigation.replace('bottomnav') : navigation.replace('signup');
+  }, 3000);
 
   return (
     <ImageBackground

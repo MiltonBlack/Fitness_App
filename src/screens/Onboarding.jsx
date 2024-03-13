@@ -6,17 +6,20 @@ import BodyType from './Onboarding/BodyType';
 import Height from './Onboarding/Height';
 import Weight from './Onboarding/Weight';
 import Goal from './Onboarding/Goal';
+import { useAuth } from '../utils/ContextAPI';
 
 const Onboarding = ({ navigation }) => {
     const [userData, setUserData] = useState({});
+    const { storeUser } = useAuth();
 
     const handleSelect = (field, value) => {
         setUserData({ ...userData, [field]: value })
     }
 
-    function handleComplete() {
+    async function handleComplete() {
+        await storeUser(userData);
         // Assuming navigation to the home page upon completion
-        navigation.navigate('bottomnav');
+        await navigation.navigate('bottomnav');
     }
 
     return (
@@ -32,7 +35,7 @@ const Onboarding = ({ navigation }) => {
             ) : Object.keys(userData).length === 4 ? (
                 <Goal onSelect={handleSelect} />
             ) : (
-                <Button title="Complete" onPress={handleComplete} />
+                <Button title="Complete" onPress={handleComplete} style={styles.complete} />
             )}
         </View>
     )

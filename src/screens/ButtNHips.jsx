@@ -14,6 +14,7 @@ const ButtNHips = () => {
     <View style={{flex:1}}>
       <Text style={styles.header}>Push Ups</Text>
       <WorkoutImg />
+      {/* onpress filter data by id and pass filtered data to the detailed screen */}
       <FlatList data={data} renderItem={renderItem} keyExtractor={data.id} ItemSeparatorComponent={Seperator}/>
     </View>
   )
