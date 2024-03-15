@@ -1,19 +1,20 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { useAuth } from '../utils/ContextAPI';
 
-
-const SignUpScreen: React.FC = ({navigation}: any) => {
+const SignUpScreen: React.FC = ({ navigation }: any) => {
   // const navigation = useNavigation();
+  const { SignUp } = useAuth();
   const [name, setName] = useState<string>('');
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
 
-  const handleSignUp = () => {
+  const handleSignUp = async () => {
     // Implement signup logic here
     // console.log('Name:', name);
     // console.log('Email:', email);
     // console.log('Password:', password);
+    await SignUp(name, email, password);
     navigation.navigate('login')
   };
 

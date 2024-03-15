@@ -1,16 +1,21 @@
 import { FlatList, Text, View } from 'react-native'
 import React from 'react'
 import { styles } from '../styles/Category'
-import { IData, data } from '../utils/data'
+import { data } from '../utils/data'
 import Workout from '../components/Workout'
 import WorkoutImg from '../components/WorkoutImg'
 import Seperator from '../components/Seperator'
+// import { NavigationProp } from '@react-navigation/native'
+
+// type Props = {
+//   route: NavigationProp<any>;
+// }
 
 const Yoga = () => {
-  const renderItem = ({ item }: any) => (
-    <Workout item={item} key={item.id} />
+  const renderItem = ({ item }) => (
+    <Workout item={item} key={item.id} image={item.image} work={item.workout} />
   )
-  const keyExtractor = (item: any, idx: number) => {
+  const keyExtractor = (item, idx) => {
     return idx.toString();
   };
   return (

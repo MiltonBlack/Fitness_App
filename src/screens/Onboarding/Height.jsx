@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, Button } from 'react-native'
+import { View, Text, TouchableOpacity } from 'react-native'
 import React, { useState } from 'react'
 import { styles } from '../../styles/Onboarding';
 
@@ -18,12 +18,11 @@ const Height = ({ onSelect }) => {
         <Text style={styles.optionText}>51 to 60 Inches</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.option} onPress={() => handleSelect('70')}>
-        <Text style={styles.optionText}>61 to 70</Text>
+        <Text style={styles.optionText}>61 to 70 Inches</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.option} onPress={() => handleSelect('80')}>
-        <Text style={styles.optionText}>71 to 80</Text>
+        <Text style={styles.optionText}>71 to 80 Inches</Text>
       </TouchableOpacity>
-      {height !== '' && <Button title='Next' />}
     </View>
   )
 }

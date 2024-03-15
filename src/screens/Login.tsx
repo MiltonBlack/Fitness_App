@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
-import { NavigationProp } from '@react-navigation/native';
+
 
 const LoginScreen: React.FC = ({ navigation }: any) => {
     const [email, setEmail] = useState<string>('');

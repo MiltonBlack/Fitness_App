@@ -11,11 +11,12 @@ export function useAuth() {
 function ContextProvider({ children }) {
     const [user, setUser] = useState();
     const [data, setData] = useState(null);
+    const [error, setError] = useState(null);
     const url = ''
 
-    const retrieveUser = async () => {
+    const retrieveData = async () => {
         try {
-            const savedUser = await AsyncStorage.getItem("user");
+            const savedUser = await AsyncStorage.getItem("data");
             const currentUser = JSON.parse(savedUser);
             console.log(currentUser);
             setData(currentUser);
@@ -24,9 +25,9 @@ function ContextProvider({ children }) {
         }
     }
 
-    const storeUser = async (userData) => {
+    const storeData = async (userData) => {
         try {
-            await AsyncStorage.setItem("user", JSON.stringify(userData));
+            await AsyncStorage.setItem("data", JSON.stringify(userData));
             console.log(userData);
         } catch (error) {
             console.log(error);
@@ -35,36 +36,54 @@ function ContextProvider({ children }) {
 
     const deleteData = async () => {
         try {
-            await AsyncStorage.removeItem("user");
+            await AsyncStorage.removeItem("data");
         } catch (error) {
             console.log(error);
         }
     }
 
-    function SignUp() {
+    function SignUp(name, email, password) {
+        const data = {
+            name,
+            email,
+            password
+        }
         try {
-            axios.post();
+            axios.post(`http://localhost:4000/fitness/api/auth/signup`, data).then(res => console.log(res.data)).catch(err => setError(err));
         } catch (error) {
-            
+            console.error(error);
+            setError(error);
         }
     }
     
-    function SignIn() {
+    async function SignIn(email, password) {
+        const data = {
+            email,
+            password
+        }
         try {
-            axios.post();
+            await axios.post(`http://localhost:4000/fitness/api/auth/signin`, data).then(res => {
+                if (res.data) {
+                    setUser(res.data);
+                    AsyncStorage.setItem("user", JSON.stringify(res.data));
+            }}).catch(err => setError(err));
         } catch (error) {
-            
+            console.error(error);
+            setError(error);
         }
     }
 
     values = {
         user,
         data,
+        error,
         setUser,
         setData,
-        storeUser,
-        retrieveUser,
-        deleteData
+        storeData,
+        retrieveData,
+        deleteData,
+        SignUp,
+        SignIn
     }
 
     return (

@@ -15,6 +15,9 @@ const Goal = ({ onSelect }) => {
       <TouchableOpacity style={styles.option} onPress={() => handleSelect('Strength')}>
         <Text style={styles.optionText}>Strength</Text>
       </TouchableOpacity>
+      <TouchableOpacity style={styles.option} onPress={() => handleSelect('Body Shape')}>
+        <Text style={styles.optionText}>Body Shape</Text>
+      </TouchableOpacity>
     </View>
   )
 }

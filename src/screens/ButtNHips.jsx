@@ -8,7 +8,7 @@ import Seperator from '../components/Seperator'
 
 const ButtNHips = () => {
   const renderItem = ({ item }) => (
-    <Workout item={item} key={item.id} />
+    <Workout item={item} key={item.id} image={item.image} work={item.workout} />
   )
   return (
     <View style={{flex:1}}>

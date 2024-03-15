@@ -4,13 +4,13 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'space-around',
-    alignItems: 'center',
+    // alignItems: 'center',
     paddingHorizontal: 20
   },
   text: {
     marginBottom: 30,
     color: 'black',
-    fontSize: 30,
+    fontSize: 40,
     textAlign: 'center'
   },
   option: {
@@ -22,14 +22,18 @@ export const styles = StyleSheet.create({
     borderRadius: 5,
     width: '100%',
     height: 120,
-    backgroundColor:'gray'
+    backgroundColor:'black',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent:'space-between'
   },
   optionText: {
-    fontSize: 16,
-    color: 'black',
+    fontSize: 18,
+    color: 'white',
+    fontWeight: '800'
   },
   complete: {
-    padding: 10,
+    padding: 15,
     width: '70%',
     height: 50,
     borderRadius: 15

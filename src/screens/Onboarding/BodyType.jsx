@@ -23,7 +23,6 @@ const BodyType = ({ onSelect, navigation }) => {
       <TouchableOpacity style={styles.option} onPress={() => handleSelect('Fat')}>
         <Text style={styles.optionText}>Fat</Text>
       </TouchableOpacity>
-      {/* <Button title='Next' onPress={() => navigation.replace('bottomnav')} /> */}
     </View>
   )
 }
