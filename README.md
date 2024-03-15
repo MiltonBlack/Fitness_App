@@ -1,8 +1,8 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+This is a Fitness Application project.
 
 # Getting Started
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+>**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Cloning this Project from this repo on github and installing node_modules before proceeding.
 
 ## Step 1: Start the Metro Server
 
@@ -46,14 +46,23 @@ If everything is set up _correctly_, you should see your new app running in your
 
 This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
 
-## Step 3: Modifying your App
+## Step 3: Building the App in release Mode
 
-Now that you have successfully run the app, let's modify it.
+Now that you have successfully run the app, let's Bundle it into an apk file.
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
-
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+1. Open File/Windows Explorer using the command <kbd>Win</kbd> + <kbd>E</kbd>
+2. Navigate to the bin folder of your JDK install version in File Explorer.
+3. Launch Command Prompt by "Run as Administrator" from the start menu.
+4. Copy and Paste the command
+   **for cmd** 
+   ```cmd
+    cd /
+   ``` 
+    then press <kbd>Enter</kbd> to navigate to the root directory of the drive.
+5. Click on the Folder navigation bar in step one and copy address.
+6.  Copy and Paste the command ```cmd cd C/Program Files/Java/JDK-17/bin``` then press <kbd>Enter</kbd>, to change directory to the path in step (two).
+ >**Note**This is the default path for JDK installations, so check the one carrying your installed version number, mine is "17" that is "JDK-17". The 17 in the JDK represents the version of your JDK installed on your computer, yours can be any version!!!.
+7. Type the keytool code... to be continued...
 
 ## Congratulations! :tada:
 
