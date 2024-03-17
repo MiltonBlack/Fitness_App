@@ -5,19 +5,26 @@ import { data } from '../utils/data'
 import Workout from '../components/Workout'
 import WorkoutImg from '../components/WorkoutImg'
 import Seperator from '../components/Seperator'
+import { NavigationProp } from '@react-navigation/native'
 
-const ButtNHips = ({ navigation }) => {
-  const renderItem = ({ item }) => (
+type Props = {
+  navigation: NavigationProp<any>;
+}
+
+const Yoga = ({ navigation }: Props) => {
+  const renderItem = ({ item }: any) => (
     <TouchableOpacity onPress={() => navigation.navigate('trainingdetailed', { image: item.image, workout: item.workout })}>
-      <Workout item={item} key={item.id} image={item.image} work={item.workout} />
+      <Workout item={item} key={item.id} />
     </TouchableOpacity>
   )
+  const keyExtractor = (item: any, idx: number) => {
+    return idx.toString();
+  };
   return (
     <View style={{ flex: 1 }}>
-      <Text style={styles.header}>Butt and Hips</Text>
+      <Text style={styles.header}>Yoga</Text>
       <WorkoutImg />
-      {/* onpress filter data by id and pass filtered data to the detailed screen */}
-      <FlatList data={data} renderItem={renderItem} keyExtractor={data.id} ItemSeparatorComponent={Seperator} />
+      <FlatList data={data} renderItem={renderItem} keyExtractor={keyExtractor} ItemSeparatorComponent={Seperator} />
       <TouchableOpacity style={styles.start} onPress={()=> navigation.goBack()}>
         <Text style={{ color: 'white', fontSize: 15, fontWeight:'bold' }}>Start</Text>
       </TouchableOpacity>
@@ -25,4 +32,4 @@ const ButtNHips = ({ navigation }) => {
   )
 }
 
-export default ButtNHips
+export default Yoga

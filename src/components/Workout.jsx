@@ -1,12 +1,12 @@
-import { Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
+import { Text, StyleSheet, Image, View } from 'react-native'
 import React from 'react'
 
-const Workout = ({ item, image, work, navigation }) => {
+const Workout = ({ item }) => {
   return (
-    <TouchableOpacity style={styles.card} onPress={navigation.navigate('trainingdetailed', { image, work })}>
+    <View style={styles.card} >
       <Image style={styles.cardImage} source={item.image} />
       <Text style={styles.cardText}>{item.workout}</Text>
-    </TouchableOpacity>
+    </View>
   )
 }
 

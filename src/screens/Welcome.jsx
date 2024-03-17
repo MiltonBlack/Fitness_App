@@ -3,10 +3,10 @@ import { View, Text, ImageBackground, StyleSheet } from 'react-native';
 import { useAuth } from '../utils/ContextAPI';
 
 const WelcomeScreen = ({ navigation }) => {
-  const { retrieveUser, data } = useAuth();
+  const { retrieveData, data } = useAuth();
 
   useEffect(()=> {
-    retrieveUser();
+    retrieveData();
   },[])
 
   setTimeout(() => {

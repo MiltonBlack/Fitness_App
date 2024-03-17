@@ -12,11 +12,11 @@ const Gender = ({ onSelect }) => {
     <View style={styles.container}>
       <Text style={styles.text}>Choose your Gender</Text>
       <TouchableOpacity style={styles.option} onPress={() => handleSelect('Male')}>
-        <Image source={require('../../assets/icons/weights.png')}/>
+        <Image source={require('../../assets/icons/weights.png')} style={{height:70, width: 70}}/>
         <Text style={styles.optionText}>Male</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.option} onPress={() => handleSelect('Female')}>
-        <Image source={require('../../assets/icons/weights.png')}/>
+        <Image source={require('../../assets/icons/weights.png')} style={{height:70, width: 70}}/>
         <Text style={styles.optionText}>Female</Text>
       </TouchableOpacity>
     </View>

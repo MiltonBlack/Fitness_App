@@ -10,14 +10,16 @@ import { useAuth } from '../utils/ContextAPI';
 
 const Onboarding = ({ navigation }) => {
     const [userData, setUserData] = useState({});
-    const { storeUser } = useAuth();
+    const { storeData } = useAuth();
 
     const handleSelect = (field, value) => {
         setUserData({ ...userData, [field]: value })
     }
 
+    console.log(userData);
     async function handleComplete() {
-        await storeUser(userData);
+        await storeData(userData);
+        console.log(userData);
         // Assuming navigation to the home page upon completion
         await navigation.navigate('bottomnav');
     }
