@@ -18,7 +18,7 @@ const PushUps = ({navigation}) => {
       <Text style={styles.header}>Push Ups</Text>
       <WorkoutImg />
       <FlatList data={data} renderItem={renderItem} keyExtractor={data.id} ItemSeparatorComponent={Seperator} />
-      <TouchableOpacity style={styles.start} onPress={()=> navigation.goBack()}>
+      <TouchableOpacity style={styles.start} onPress={()=> navigation.navigate('exercise')}>
         <Text style={{ color: 'white', fontSize: 15, fontWeight:'bold' }}>Start</Text>
       </TouchableOpacity>
     </View>

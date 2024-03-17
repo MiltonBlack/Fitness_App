@@ -33,9 +33,12 @@ export const styles = StyleSheet.create({
     fontWeight: '800'
   },
   complete: {
-    padding: 15,
-    width: '70%',
-    height: 50,
-    borderRadius: 15
-  }
+    padding: 25,
+    width: '100%',
+    borderRadius: 25,
+    backgroundColor: 'blue',
+    alignItems: 'center',
+    marginHorizontal: 9,
+    marginBottom: 5
+  },
 });

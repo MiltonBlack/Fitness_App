@@ -1,5 +1,5 @@
-import { Button, View } from 'react-native'
-import React, { useState } from 'react'
+import { Text, TouchableOpacity, View } from 'react-native';
+import React, { useState } from 'react';
 import { styles } from '../styles/Onboarding';
 import Gender from './Onboarding/Gender';
 import BodyType from './Onboarding/BodyType';
@@ -37,7 +37,9 @@ const Onboarding = ({ navigation }) => {
             ) : Object.keys(userData).length === 4 ? (
                 <Goal onSelect={handleSelect} />
             ) : (
-                <Button title="Complete" onPress={handleComplete} style={styles.complete} />
+                <TouchableOpacity style={styles.complete} onPress={() => navigation.navigate('bottomnav')}>
+                    <Text style={{ color: 'white', fontSize: 15, fontWeight: 'bold' }}>Complete</Text>
+                </TouchableOpacity>
             )}
         </View>
     )

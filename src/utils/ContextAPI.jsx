@@ -12,7 +12,7 @@ function ContextProvider({ children }) {
     const [user, setUser] = useState();
     const [data, setData] = useState(null);
     const [error, setError] = useState(null);
-    const url = ''
+    const url = 'https://fitness-backend-v8z1.onrender.com';
 
     const retrieveData = async () => {
         try {

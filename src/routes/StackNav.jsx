@@ -14,6 +14,7 @@ import Onboarding from '../screens/Onboarding';
 import Gender from '../screens/Onboarding/Gender';
 import BodyType from '../screens/Onboarding/BodyType';
 import TrainingDetailed from '../screens/TrainingDetailed'
+import Exercise from '../screens/Exercise';
 
 const Stack = createNativeStackNavigator();
 const StackNav = () => {
@@ -49,6 +50,7 @@ const StackNav = () => {
       <Stack.Screen name='bodytype' component={BodyType} />
       <Stack.Screen name='onboarding' component={Onboarding} />
       <Stack.Screen name='trainingdetailed' component={TrainingDetailed} />
+      <Stack.Screen name='exercise' component={Exercise} />
     </Stack.Navigator>
   )
 }

@@ -49,6 +49,7 @@ const styles = StyleSheet.create({
         fontSize: 24,
         fontWeight: 'bold',
         marginBottom: 20,
+        color: "black",
     },
     input: {
         width: '100%',
@@ -58,6 +59,7 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         paddingHorizontal: 10,
         marginBottom: 10,
+        color: "black",
     },
     button: {
         width: '100%',
