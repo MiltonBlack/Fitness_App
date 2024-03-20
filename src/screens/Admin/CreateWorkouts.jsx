@@ -1,18 +1,22 @@
 import { View, Text, TextInput, TouchableOpacity } from 'react-native'
 import React, { useState } from 'react'
 import { styles } from '../../styles/Admin';
+import { useAuth } from '../../utils/ContextAPI';
 
 const CreateWorkouts = () => {
+    const { AddWorkout } = useAuth();
     const [state, setState] = useState({
         categoryId: '',
         name: '',
         duration: '',
-        calories: '',
+        reps:'',
+        set:'',
         tags: '',
         description: ''
     });
-    function addActivity() {
-        
+    
+    async function addActivity() {
+        await AddWorkout(state)
     }
     return (
         <View style={styles.container}>

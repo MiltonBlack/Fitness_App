@@ -1,10 +1,11 @@
 import { View, Text, TextInput, TouchableOpacity } from 'react-native'
 import React, { useState } from 'react'
 import { styles } from '../../styles/Admin';
+import { useAuth } from '../../utils/ContextAPI';
 
 const CreateCategory = () => {
+    const { AddCategory } = useAuth();
     const [state, setState] = useState({
-        categoryId: '',
         name: '',
         duration: '',
         calories: '',
@@ -12,8 +13,8 @@ const CreateCategory = () => {
         description: ''
     });
 
-    function addActivity() {
-        
+    async function addActivity() {
+        state.name !== '' && state.description !== '' && await AddCategory(state)
     }
     return (
         <View style={styles.container}>
