@@ -10,6 +10,7 @@ export function useAuth() {
 
 function ContextProvider({ children }) {
     const [user, setUser] = useState();
+    const [isAdmin, setIsAdmin] = useState(true);
     const [data, setData] = useState(null);
     const [error, setError] = useState(null);
     const url = 'https://fitness-backend-v8z1.onrender.com';
@@ -77,6 +78,7 @@ function ContextProvider({ children }) {
         user,
         data,
         error,
+        isAdmin,
         setUser,
         setData,
         storeData,

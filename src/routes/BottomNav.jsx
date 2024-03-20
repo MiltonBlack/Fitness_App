@@ -1,15 +1,18 @@
-import { StyleSheet, Text, View, Platform } from 'react-native'
+import { View, Platform } from 'react-native'
 import React from 'react'
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Home from '../screens/Home';
 import Profile from '../screens/Profile';
 import Report from '../screens/Report';
+import AdminExercise from '../screens/AdminExercise';
 import Feeds from '../screens/Feeds';
 import CreatePost from '../screens/CreatePost';
+import { useAuth } from '../utils/ContextAPI';
 
 const Tab = createMaterialBottomTabNavigator();
 const BottomNav = () => {
+    const { isAdmin } = useAuth();
 
     const screenOptions = {
         // tabBarShowLabel: false,
@@ -27,7 +30,7 @@ const BottomNav = () => {
 
     return (
         <Tab.Navigator
-            // screenOptions={screenOptions}
+        // screenOptions={screenOptions}
         >
             <Tab.Screen name='home'
                 component={Home}
@@ -44,8 +47,8 @@ const BottomNav = () => {
                         )
                     }
                 }} />
-            {/* <Tab.Screen name='Feed'
-                component={Feeds}
+            {isAdmin && <Tab.Screen name='Admin'
+                component={AdminExercise}
                 options={{
                     tabBarIcon: ({ focused }) => {
                         return (
@@ -55,12 +58,11 @@ const BottomNav = () => {
                                     size={24}
                                     color={focused ? '#A0015D' : 'grey'}
                                 />
-                                {/* <Text style={{ fontSize: 12, color: 'grey' }}>Feed</Text> */}
-            {/* </View>
+                            </View>
                         )
                     }
-                }} />
-            <Tab.Screen name='createpost'
+                }} />}
+            {/* <Tab.Screen name='createpost'
                 component={CreatePost}
                 options={{
                     tabBarIcon: ({ focused }) => {
@@ -119,5 +121,3 @@ const BottomNav = () => {
 }
 
 export default BottomNav
-
-const styles = StyleSheet.create({})

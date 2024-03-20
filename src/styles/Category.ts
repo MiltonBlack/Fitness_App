@@ -38,5 +38,8 @@ export const styles = StyleSheet.create({
     },
     exerciseDuration:{
       color:'black'
+    },
+    container:{
+      flex: 1
     }
   })

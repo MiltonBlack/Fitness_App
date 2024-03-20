@@ -8,7 +8,7 @@ const Exercise = () => {
 
     }
     return (
-        <View>
+        <View style={styles.container}>
             <Image source={require('../assets/icons/weights.png')} style={{ height: 270, width: '100%' }} />
             <Text style={styles.exerciseName}>Exercise</Text>
             <Text style={styles.execiseType}>Heel Touch</Text>

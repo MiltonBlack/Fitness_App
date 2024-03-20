@@ -1,4 +1,3 @@
-import { StyleSheet } from 'react-native'
 import React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import WelcomeScreen from '../screens/Welcome';
@@ -15,6 +14,11 @@ import Gender from '../screens/Onboarding/Gender';
 import BodyType from '../screens/Onboarding/BodyType';
 import TrainingDetailed from '../screens/TrainingDetailed'
 import Exercise from '../screens/Exercise';
+import CreateCategory from '../screens/Admin/CreateCategory';
+import CreateWorkouts from '../screens/Admin/CreateWorkouts';
+import DeleteCategory from '../screens/Admin/DeleteCategory';
+import DeleteWorkouts from '../screens/Admin/DeleteWorkouts';
+import AdminExercise from '../screens/AdminExercise';
 
 const Stack = createNativeStackNavigator();
 const StackNav = () => {
@@ -51,6 +55,11 @@ const StackNav = () => {
       <Stack.Screen name='onboarding' component={Onboarding} />
       <Stack.Screen name='trainingdetailed' component={TrainingDetailed} />
       <Stack.Screen name='exercise' component={Exercise} />
+      <Stack.Screen name='category' component={CreateCategory} />
+      <Stack.Screen name='workouts' component={CreateWorkouts} />
+      <Stack.Screen name='deletecat' component={DeleteCategory} />
+      <Stack.Screen name='delwork' component={DeleteWorkouts} />
+      <Stack.Screen name='admin' component={AdminExercise} />
     </Stack.Navigator>
   )
 }

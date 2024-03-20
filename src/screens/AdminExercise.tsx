@@ -21,13 +21,17 @@ interface ExerciseProps {
   };
 }
 
-const Exercise: React.FC<ExerciseProps> = ({ navigation }) => {
+const AdminExercise: React.FC<ExerciseProps> = ({ navigation }) => {
   const [state, setState] = useState({
     name: '',
     duration: '',
     calories: '',
     date: '',
   });
+
+  function Navigate(route: string) {
+    navigation.navigate(`${route}`);
+  }
 
   const addActivity = () => {
     const { name, duration, calories } = state;
@@ -62,100 +66,64 @@ const Exercise: React.FC<ExerciseProps> = ({ navigation }) => {
       });
   };
 
-  const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      flexDirection: 'column',
-      justifyContent: 'center',
-      alignItems: 'center',
-    },
-    input_box: {
-      width: '75%',
-      height: 40,
-      marginBottom: 25,
-    },
-    input_title: {
-      color: '#121212',
-      marginTop: -20,
-    },
-    input_placeholder: {
-      flex: 1,
-      padding: 10,
-      borderRadius: 10,
-      color: '#121212',
-      backgroundColor: 'rgba(230,230,230,1)',
-    },
-    btn_shape: {
-      backgroundColor: 'rgba(99,206,237,1)',
-      borderRadius: 10,
-      width: '40%',
-      height: 40,
-      marginBottom: 15,
-      justifyContent: 'center',
-    },
-    btn_text: {
-      color: 'rgba(255,255,255,1)',
-      fontSize: 16,
-      textAlign: 'center',
-      fontWeight: 'bold',
-    },
-  });
-
   return (
     <View style={styles.container}>
-      <View style={styles.input_box}>
-        <Text style={styles.input_title}>Exercise Name</Text>
-        <TextInput
-          placeholder={'Exercise Name'}
-          style={styles.input_placeholder}
-          value={state.name}
-          onChangeText={(input) => setState({ ...state, name: input })}
-        />
-      </View>
-      <View style={styles.input_box}>
-        <Text style={styles.input_title}>Duration</Text>
-        <TextInput
-          placeholder={'0'}
-          style={styles.input_placeholder}
-          value={state.duration}
-          onChangeText={(input) => setState({ ...state, duration: input })}
-        />
-      </View>
-      <View style={styles.input_box}>
-        <Text style={styles.input_title}>Calories</Text>
-        <TextInput
-          style={styles.input_placeholder}
-          value={state.calories}
-          placeholder={'0'}
-          onChangeText={(input) => setState({ ...state, calories: input })}
-        />
-      </View>
-      <View style={[styles.input_box, { height: 55 }]}>
-        <Text style={styles.input_title}>Date</Text>
-        <View style={styles.input_placeholder}>
-          <DatePicker
-            style={{ width: '100%' }}
-            date={state.date}
-            mode="date"
-            placeholder="select date"
-            format="YYYY-MM-DD"
-            confirmBtnText="Add Date"
-            cancelBtnText="Cancel"
-            onDateChange={(input) => setState({ ...state, date: input })}
-          />
-        </View>
-      </View>
-      <TouchableOpacity onPress={addActivity} style={styles.btn_shape}>
-        <Text style={styles.btn_text}>Submit</Text>
+      <TouchableOpacity style={styles.workoutCard} onPress={() => Navigate('category')}>
+        <Text style={styles.workoutTitle}>Create a Category</Text>
+        <Text style={styles.workoutDescription}>Target: Classify workouts</Text>
       </TouchableOpacity>
-      <TouchableOpacity
-        onPress={() => navigation.navigate('Login')}
-        style={[styles.btn_shape, { backgroundColor: 'red' }]}
-      >
-        <Text style={styles.btn_text}>Log Out</Text>
+      <TouchableOpacity style={styles.workoutCard} onPress={() => Navigate('workouts')}>
+        <Text style={styles.workoutTitle}>Create a Workout</Text>
+        <Text style={styles.workoutDescription}>Target: Workout creation</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.workoutCard} onPress={() => Navigate('deletecat')}>
+        <Text style={styles.workoutTitle}>Delete a Category</Text>
+        <Text style={styles.workoutDescription}>Target: Delete</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.workoutCard} onPress={() => Navigate('deletework')}>
+        <Text style={styles.workoutTitle}>Remove a Workout</Text>
+        <Text style={styles.workoutDescription}>Target: Delete</Text>
       </TouchableOpacity>
     </View>
   );
 };
 
-export default Exercise;
+export default AdminExercise;
+
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 20,
+    backgroundColor: '#f0f0f0',
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 20,
+    color: 'black'
+  },
+  workoutCard: {
+    backgroundColor: 'white',
+    padding: 15,
+    borderRadius: 10,
+    marginBottom: 15,
+    elevation: 3,
+  },
+  workoutImage: {
+    width: '100%',
+    height: 150,
+    marginBottom: 10,
+    borderRadius: 10,
+  },
+  workoutTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 5,
+    color: 'black'
+  },
+  workoutDescription: {
+    fontSize: 14,
+    color: '#666',
+  },
+});
