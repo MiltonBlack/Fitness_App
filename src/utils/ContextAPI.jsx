@@ -23,7 +23,9 @@ function ContextProvider({ children }) {
 
     const retrieveData = async () => {
         try {
-            const savedUser = await AsyncStorage.getItem("data");
+            const saved = await AsyncStorage.getItem("data");
+            const savedUser = await AsyncStorage.getItem("user");
+            const savedToken = await AsyncStorage.getItem("token");
             const currentUser = JSON.parse(savedUser);
             console.log(currentUser);
             setData(currentUser);
@@ -35,6 +37,8 @@ function ContextProvider({ children }) {
     const storeData = async (userData) => {
         try {
             await AsyncStorage.setItem("data", JSON.stringify(userData));
+            await AsyncStorage.setItem("user", JSON.stringify(userData));
+            await AsyncStorage.setItem("token", JSON.stringify(token));
             console.log(userData);
         } catch (error) {
             console.log(error);
@@ -44,6 +48,8 @@ function ContextProvider({ children }) {
     const deleteData = async () => {
         try {
             await AsyncStorage.removeItem("data");
+            await AsyncStorage.removeItem("user");
+            await AsyncStorage.removeItem("token");
         } catch (error) {
             console.log(error);
         }
@@ -73,7 +79,9 @@ function ContextProvider({ children }) {
             await axios.post(`${auth_url}` + '/signin', data).then(res => {
                 if (res.data) {
                     setUser(res.data);
+                    setToken(res.data.token);
                     AsyncStorage.setItem("user", JSON.stringify(res.data));
+                    AsyncStorage.setItem("token", JSON.stringify(res.data.token));
             }}).catch(err => setError(err));
         } catch (error) {
             console.error(error);
@@ -119,7 +127,7 @@ function ContextProvider({ children }) {
             headers: { Authorization: `Bearer ${token}` }
         }
         try {
-            await axios.get(`${category_url}` + '/all', config).then(res => setWorkouts(res.data)).catch(err => console.log(err));
+            await axios.get(`${category_url}` + '/all', config).then(res => setCategories(res.data)).catch(err => console.log(err));
         } catch (error) {
             setError(error);
         }
@@ -152,6 +160,8 @@ function ContextProvider({ children }) {
         data,
         error,
         isAdmin,
+        workouts,
+        categories,
         setUser,
         setData,
         storeData,

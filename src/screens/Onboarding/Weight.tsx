@@ -2,9 +2,9 @@ import { View, Text, TouchableOpacity, Button } from 'react-native'
 import React, { useState } from 'react'
 import { styles } from '../../styles/Onboarding'
 
-const Weight = ({ onSelect }) => {
+const Weight: React.FC = ({ onSelect }: any) => {
   const [weight, setWeight] = useState('');
-  const handleSelect = (selected) => {
+  const handleSelect = (selected: string) => {
     setWeight(selected);
     onSelect('weight', selected);
   }
@@ -23,7 +23,6 @@ const Weight = ({ onSelect }) => {
       <TouchableOpacity style={styles.option} onPress={() => handleSelect('80')}>
         <Text style={styles.optionText}>71 to 80Kg</Text>
       </TouchableOpacity>
-      {weight !== '' && <Button title='Next' />}
     </View>
   )
 }

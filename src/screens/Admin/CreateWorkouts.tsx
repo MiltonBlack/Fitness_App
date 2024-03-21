@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { styles } from '../../styles/Admin';
 import { useAuth } from '../../utils/ContextAPI';
 
-const CreateWorkouts = () => {
+const CreateWorkouts: React.FC = () => {
     const { AddWorkout } = useAuth();
     const [state, setState] = useState({
         categoryId: '',
@@ -16,10 +16,11 @@ const CreateWorkouts = () => {
     });
     
     async function addActivity() {
-        await AddWorkout(state)
+        state.name !== '' && state.description !== '' && await AddWorkout(state)
     }
     return (
         <View style={styles.container}>
+            {/* create a dropdown of select categories to add workouts */}
             <View style={styles.input_box}>
                 <Text style={styles.input_title}>Exercise Name</Text>
                 <TextInput
@@ -39,19 +40,28 @@ const CreateWorkouts = () => {
                 />
             </View>
             <View style={styles.input_box}>
-                <Text style={styles.input_title}>Calories</Text>
+                <Text style={styles.input_title}>Repeats</Text>
                 <TextInput
                     style={styles.input_placeholder}
-                    value={state.calories}
+                    value={state.reps}
                     placeholder={'0'}
-                    onChangeText={(input) => setState({ ...state, calories: input })}
+                    onChangeText={(input) => setState({ ...state, reps: input })}
+                />
+            </View>
+            <View style={styles.input_box}>
+                <Text style={styles.input_title}>Sets</Text>
+                <TextInput
+                    style={styles.input_placeholder}
+                    value={state.set}
+                    placeholder={'0'}
+                    onChangeText={(input) => setState({ ...state, set: input })}
                 />
             </View>
             <View style={styles.input_box}>
                 <Text style={styles.input_title}>Tags</Text>
                 <TextInput
                     style={styles.input_placeholder}
-                    value={state.calories}
+                    value={state.tags}
                     placeholder={'0'}
                     onChangeText={(input) => setState({ ...state, tags: input })}
                 />
@@ -60,9 +70,9 @@ const CreateWorkouts = () => {
                 <Text style={styles.input_title}>Description</Text>
                 <TextInput
                     style={styles.input_placeholder}
-                    value={state.calories}
+                    value={state.description}
                     placeholder={'0'}
-                    onChangeText={(input) => setState({ ...state, tags: input })}
+                    onChangeText={(input) => setState({ ...state, description: input })}
                 />
             </View>
             <TouchableOpacity onPress={addActivity} style={styles.btn_shape}>

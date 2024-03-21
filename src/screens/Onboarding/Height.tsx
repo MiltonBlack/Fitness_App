@@ -2,9 +2,9 @@ import { View, Text, TouchableOpacity } from 'react-native'
 import React, { useState } from 'react'
 import { styles } from '../../styles/Onboarding';
 
-const Height = ({ onSelect }) => {
+const Height: React.FC = ({ onSelect }:any) => {
   const [height, setHeight] = useState('');
-  const handleSelect = (selected) => {
+  const handleSelect = (selected: string) => {
     setHeight(selected);
     onSelect('height', selected);
   }

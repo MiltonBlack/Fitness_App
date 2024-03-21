@@ -5,16 +5,15 @@ import { useAuth } from '../utils/ContextAPI';
 const SignUpScreen: React.FC = ({ navigation }: any) => {
   // const navigation = useNavigation();
   const { SignUp } = useAuth();
-  const [name, setName] = useState<string>('');
+  const [userName, setUserName] = useState<string>('');
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
 
   const handleSignUp = async () => {
-    // Implement signup logic here
     // console.log('Name:', name);
     // console.log('Email:', email);
     // console.log('Password:', password);
-    await SignUp(name, email, password);
+    userName !== '' && email !== '' && password !== '' && await SignUp(userName, email, password);
     navigation.navigate('login')
   };
 
@@ -24,8 +23,8 @@ const SignUpScreen: React.FC = ({ navigation }: any) => {
       <TextInput
         style={styles.input}
         placeholder="Name"
-        value={name}
-        onChangeText={setName}
+        value={userName}
+        onChangeText={setUserName}
       />
       <TextInput
         style={styles.input}

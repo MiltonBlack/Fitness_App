@@ -6,6 +6,7 @@ export const styles = StyleSheet.create({
       flexDirection: 'column',
       justifyContent: 'center',
       alignItems: 'center',
+      backgroundColor: '#f0f0f0',
     },
     input_box: {
       width: '75%',
@@ -36,5 +37,28 @@ export const styles = StyleSheet.create({
       fontSize: 16,
       textAlign: 'center',
       fontWeight: 'bold',
+    },
+    title: {
+      fontSize: 24,
+      fontWeight: 'bold',
+      marginBottom: 20,
+      color: 'black'
+    },
+    workoutCard: {
+      backgroundColor: 'white',
+      padding: 15,
+      borderRadius: 10,
+      marginBottom: 15,
+      elevation: 3,
+    },
+    workoutTitle: {
+      fontSize: 18,
+      fontWeight: 'bold',
+      marginBottom: 5,
+      color: 'black'
+    },
+    workoutDescription: {
+      fontSize: 14,
+      color: '#666',
     },
   });

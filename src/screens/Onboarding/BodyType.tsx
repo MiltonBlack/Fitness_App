@@ -1,10 +1,10 @@
-import { View, Text, TouchableOpacity, Button } from 'react-native'
+import { View, Text, TouchableOpacity } from 'react-native'
 import React, { useState } from 'react'
 import { styles } from '../../styles/Onboarding'
 
-const BodyType = ({ onSelect, navigation }) => {
+const BodyType: React.FC = ({ onSelect }: any) => {
   const [bodyType, setBodyType] = useState('');
-  const handleSelect = (selected) => {
+  const handleSelect = (selected: string) => {
     setBodyType(selected);
     onSelect('body', selected);
   }

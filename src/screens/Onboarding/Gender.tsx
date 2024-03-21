@@ -2,9 +2,9 @@ import { View, Text, TouchableOpacity, Image } from 'react-native'
 import React, { useState } from 'react'
 import { styles } from '../../styles/Onboarding'
 
-const Gender = ({ onSelect }) => {
+const Gender: React.FC = ({ onSelect }: any) => {
   const [gender, setGender] = useState('');
-  const handleSelect = (selected) => {
+  const handleSelect = (selected: string) => {
     setGender(selected);
     onSelect('gender', selected);
   }

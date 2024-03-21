@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { styles } from '../../styles/Admin';
 import { useAuth } from '../../utils/ContextAPI';
 
-const CreateCategory = () => {
+const CreateCategory: React.FC = () => {
     const { AddCategory } = useAuth();
     const [state, setState] = useState({
         name: '',
