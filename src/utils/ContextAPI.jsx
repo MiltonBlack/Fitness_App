@@ -16,7 +16,7 @@ function ContextProvider({ children }) {
     const [token, setToken] = useState(null);
     const [categories, setCategories] = useState(null);
     const [workouts, setWorkouts] = useState(null);
-    const Base_URL = 'https://fitness-backend-v8z1.onrender.com/fitness';
+    const Base_URL = 'https://fitness-backend-mb.onrender.com/fitness';
     const auth_url = Base_URL + `/api/auth`;
     const category_url = Base_URL + `/api/category`;
     const workout_url = Base_URL + `/api/workout`;
