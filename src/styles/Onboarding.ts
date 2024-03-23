@@ -5,7 +5,8 @@ export const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'space-around',
     // alignItems: 'center',
-    paddingHorizontal: 20
+    paddingHorizontal: 20,
+    backgroundColor: '#f0f0f0',
   },
   text: {
     marginBottom: 30,
@@ -18,11 +19,11 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 20,
     marginBottom: 10,
     borderWidth: 1,
-    borderColor: 'lightgray',
-    borderRadius: 5,
+    borderColor: 'black',
+    borderRadius: 25,
     width: '100%',
     height: 120,
-    backgroundColor:'black',
+    backgroundColor:'white',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent:'space-between'

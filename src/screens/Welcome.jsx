@@ -10,18 +10,19 @@ const WelcomeScreen = ({ navigation }) => {
   },[])
 
   setTimeout(() => {
-    data !== null ? navigation.replace('bottomnav') : navigation.replace('signup');
+    data !== null ? navigation.replace('bottomnav') : navigation.replace('onboarding');
   }, 3000);
 
   return (
     <ImageBackground
-      source={require('../assets/images/fitness.jpg')}
+      source={require('../assets/images/fitness.jpg')} 
       style={styles.background}
       resizeMode="cover"
     >
       <View style={styles.container}>
         <Text style={styles.logo}>Fitness App</Text>
         <Text style={styles.tagline}>Get Fit. Stay Healthy.</Text>
+        <Text style={styles.tagline}>By Favour Ogechi</Text>
       </View>
     </ImageBackground>
   );

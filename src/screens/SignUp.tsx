@@ -14,7 +14,7 @@ const SignUpScreen: React.FC = ({ navigation }: any) => {
     // console.log('Email:', email);
     // console.log('Password:', password);
     userName !== '' && email !== '' && password !== '' && await SignUp(userName, email, password);
-    navigation.navigate('login')
+    navigation.navigate('login') 
   };
 
   return (
@@ -54,6 +54,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: 20,
+    backgroundColor: '#f0f0f0',
   },
   title: {
     fontSize: 24,
@@ -69,7 +70,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     paddingHorizontal: 10,
     marginBottom: 25,
-    color: "black"
+    color: "black",
   },
   button: {
     width: '100%',

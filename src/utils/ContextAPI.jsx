@@ -11,6 +11,7 @@ export function useAuth() {
 function ContextProvider({ children }) {
     const [user, setUser] = useState();
     const [isAdmin, setIsAdmin] = useState(true);
+    const [isLoading, setIsLoading] = useState(false);
     const [data, setData] = useState(null);
     const [error, setError] = useState(null);
     const [token, setToken] = useState(null);
@@ -55,22 +56,29 @@ function ContextProvider({ children }) {
         }
     }
 
-    function SignUp(name, email, password) {
+    async function SignUp(userName, email, password) {
+        setIsLoading(true);
         const data = {
-            name,
+            userName,
             email,
             password
         }
         try {
             console.log(`${auth_url}` + '/signup');
-            axios.post(`${auth_url}` + '/signup', data).then(res => console.log(res.data)).catch(err => setError(err));
+            await axios.post(`${auth_url}` + '/signup', data).then(res => {
+                if (res.data) {
+                    setIsLoading(false);
+                    console.log(res.data)
+                }
+            }).catch(err => setError(err));
         } catch (error) {
             console.error(error);
             setError(error);
         }
     }
-    
+
     async function SignIn(email, password) {
+        setIsLoading(true);
         const data = {
             email,
             password
@@ -82,74 +90,112 @@ function ContextProvider({ children }) {
                     setToken(res.data.token);
                     AsyncStorage.setItem("user", JSON.stringify(res.data));
                     AsyncStorage.setItem("token", JSON.stringify(res.data.token));
-            }}).catch(err => setError(err));
+                    setIsLoading(false);
+                }
+            }).catch(err => setError(err));
         } catch (error) {
             console.error(error);
             setError(error);
         }
     }
-    
+
     async function AddWorkout(payload) {
+        setIsLoading(true);
         const config = {
             headers: { Authorization: `Bearer ${token}` }
         }
         try {
-            await axios.post(`${workout_url}` + '/add', payload, config).then(res => console.log(res.data)).catch(err => console.log(err));
+            await axios.post(`${workout_url}` + '/add', payload, config).then(res => {
+                if (res.data) {
+                    setIsLoading(false);
+                    console.log(res.data)
+                }
+            }).catch(err => console.log(err));
         } catch (error) {
             setError(error);
         }
     }
 
     async function AddCategory(payload) {
+        setIsLoading(true);
         const config = {
             headers: { Authorization: `Bearer ${token}` }
         }
         try {
-            await axios.post(`${category_url}` + '/add', payload, config).then(res => console.log(res.data)).catch(err => console.log(err));
+            await axios.post(`${category_url}` + '/add', payload, config).then(res => {
+                if (res.data) {
+                    setIsLoading(false)
+                    console.log(res.data)
+                }
+            }).catch(err => console.log(err));
         } catch (error) {
             setError(error);
         }
     }
 
     async function GetWorkouts() {
+        setIsLoading(true)
         const config = {
             headers: { Authorization: `Bearer ${token}` }
         }
         try {
-            await axios.get(`${workout_url}` + '/all', config).then(res => setWorkouts(res.data)).catch(err => console.log(err));
+            await axios.get(`${workout_url}` + '/all', config).then(res => {
+                if (res.data) {
+                    setIsLoading(false);
+                    setWorkouts(res.data)
+                }
+            }).catch(err => console.log(err));
         } catch (error) {
             setError(error);
         }
     }
 
     async function GetCategories() {
+        setIsLoading(true)
         const config = {
             headers: { Authorization: `Bearer ${token}` }
         }
         try {
-            await axios.get(`${category_url}` + '/all', config).then(res => setCategories(res.data)).catch(err => console.log(err));
+            await axios.get(`${category_url}` + '/all', config).then(res => {
+                if (res.data) {
+                    setIsLoading(false);
+                    setCategories(res.data)
+                }
+            }).catch(err => console.log(err));
         } catch (error) {
             setError(error);
         }
     }
-    
+
     async function DeleteWorkout(id) {
+        setIsLoading(true)
         const config = {
             headers: { Authorization: `Bearer ${token}` }
         }
         try {
-            await axios.delete(`${workout_url}` + `/delete/${id}`, config).then(res => console.log(res.data)).catch(err => console.log(err));
+            await axios.delete(`${workout_url}` + `/delete/${id}`, config).then(res => {
+                if (res.data) {
+                    setIsLoading(false);
+                    console.log(res.data)
+                }
+            }).catch(err => console.log(err));
         } catch (error) {
             setError(error);
         }
     }
-    
-    async function DeleteCategories(id) {
+
+    async function RemoveCategory(id) {
+        setIsLoading(true)
         const config = {
             headers: { Authorization: `Bearer ${token}` }
         }
         try {
-            await axios.delete(`${workout_url}` + `/delete/${id}`, config).then(res => console.log(res.data)).catch(err => console.log(err));
+            await axios.delete(`${workout_url}` + `/delete/${id}`, config).then(res => {
+                if (res.data) {
+                    setIsLoading(false)
+                    console.log(res.data)
+                }
+            }).catch(err => console.log(err));
         } catch (error) {
             setError(error);
         }
@@ -174,7 +220,7 @@ function ContextProvider({ children }) {
         DeleteWorkout,
         AddCategory,
         GetCategories,
-        DeleteCategories
+        RemoveCategory
     }
 
     return (

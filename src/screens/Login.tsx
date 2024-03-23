@@ -10,7 +10,7 @@ const LoginScreen: React.FC = ({ navigation }: any) => {
         // Implement login logic here
         console.log('Email:', email);
         console.log('Password:', password);
-        navigation.navigate('onboarding')
+        navigation.navigate('bottomnav');
     };
 
     return (
@@ -44,6 +44,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         paddingHorizontal: 20,
+        backgroundColor: '#f0f0f0',
     },
     title: {
         fontSize: 24,
