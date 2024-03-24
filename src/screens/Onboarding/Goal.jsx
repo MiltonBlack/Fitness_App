@@ -9,14 +9,17 @@ const Goal = ({ onSelect }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Select your exercise focus:</Text>
-      <TouchableOpacity style={styles.option} onPress={() => handleSelect('Cardio')}>
-        <Text style={styles.optionText}>Cardio</Text>
+      <TouchableOpacity style={styles.option} onPress={() => handleSelect('Cardiovascular')}>
+        <Text style={styles.optionText}>Cardiovascular</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.option} onPress={() => handleSelect('Strength')}>
         <Text style={styles.optionText}>Strength</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.option} onPress={() => handleSelect('Body Shape')}>
-        <Text style={styles.optionText}>Body Shape</Text>
+        <Text style={styles.optionText}>Body Shape Fitness</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.option} onPress={() => handleSelect('Calorie Burn')}>
+        <Text style={styles.optionText}>Calorie Burn (Fat)</Text>
       </TouchableOpacity>
     </View>
   )

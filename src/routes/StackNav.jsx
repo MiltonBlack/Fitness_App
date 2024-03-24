@@ -19,6 +19,7 @@ import CreateWorkouts from '../screens/Admin/CreateWorkouts';
 import DeleteCategory from '../screens/Admin/DeleteCategory';
 import DeleteWorkouts from '../screens/Admin/DeleteWorkouts';
 import AdminExercise from '../screens/AdminExercise';
+import Profile from '../screens/Profile'
 
 const Stack = createNativeStackNavigator();
 const StackNav = () => {
@@ -60,6 +61,7 @@ const StackNav = () => {
       <Stack.Screen name='deletecat' component={DeleteCategory} />
       <Stack.Screen name='delwork' component={DeleteWorkouts} />
       <Stack.Screen name='admin' component={AdminExercise} />
+      <Stack.Screen name='Profile' component={Profile} />
     </Stack.Navigator>
   )
 }

@@ -28,8 +28,11 @@ function ContextProvider({ children }) {
             const savedUser = await AsyncStorage.getItem("user");
             const savedToken = await AsyncStorage.getItem("token");
             const currentUser = JSON.parse(savedUser);
-            console.log(currentUser);
-            setData(currentUser);
+            const currentToken = JSON.parse(savedToken);
+            const currentData = JSON.parse(saved);
+            setData(currentData);
+            setUser(currentUser);
+            setToken(currentToken);
         } catch (error) {
             console.log(error);
         }
@@ -39,12 +42,19 @@ function ContextProvider({ children }) {
         try {
             await AsyncStorage.setItem("data", JSON.stringify(userData));
             await AsyncStorage.setItem("user", JSON.stringify(userData));
-            await AsyncStorage.setItem("token", JSON.stringify(token));
             console.log(userData);
         } catch (error) {
             console.log(error);
         }
     };
+
+    async function storeToken() {
+        try {
+            await AsyncStorage.setItem("token", JSON.stringify(token));
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
     const deleteData = async () => {
         try {
@@ -88,6 +98,7 @@ function ContextProvider({ children }) {
                 if (res.data) {
                     setUser(res.data);
                     setToken(res.data.token);
+                    setIsAdmin(res.data.isAdmin);
                     AsyncStorage.setItem("user", JSON.stringify(res.data));
                     AsyncStorage.setItem("token", JSON.stringify(res.data.token));
                     setIsLoading(false);
@@ -204,6 +215,7 @@ function ContextProvider({ children }) {
     values = {
         user,
         data,
+        isLoading,
         error,
         isAdmin,
         workouts,

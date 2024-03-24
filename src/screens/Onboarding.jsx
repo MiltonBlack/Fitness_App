@@ -21,7 +21,7 @@ const Onboarding = ({ navigation }) => {
         await storeData(userData);
         console.log(userData);
         // Assuming navigation to the home page upon completion
-        await navigation.navigate('bottomnav');
+        await navigation.navigate('signup');
     }
 
     return (
@@ -37,7 +37,7 @@ const Onboarding = ({ navigation }) => {
             ) : Object.keys(userData).length === 4 ? (
                 <Goal onSelect={handleSelect} />
             ) : (
-                <TouchableOpacity style={styles.complete} onPress={() => navigation.navigate('bottomnav')}>
+                <TouchableOpacity style={styles.complete} onPress={() => navigation.navigate('signup')}>
                     <Text style={{ color: 'white', fontSize: 15, fontWeight: 'bold' }}>Complete</Text>
                 </TouchableOpacity>
             )}

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { View, Text, Switch, StyleSheet } from 'react-native';
+import { View, Text, Switch, StyleSheet, TouchableOpacity } from 'react-native';
 
-const SettingsScreen = () => {
+const SettingsScreen = ({ navigation }: any) => {
   const [notificationsEnabled, setNotificationsEnabled] = useState(true);
   const [darkModeEnabled, setDarkModeEnabled] = useState(false);
 
@@ -35,6 +35,12 @@ const SettingsScreen = () => {
           value={darkModeEnabled}
         />
       </View>
+      <View style={styles.section}>
+        <Text style={styles.sectionTitle}>Edit Profile</Text>
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Profile')}>
+          <Text style={styles.sectionTitle}>Edit Profile</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
@@ -53,6 +59,15 @@ const styles = StyleSheet.create({
   },
   sectionTitle: {
     fontSize: 20,
+  },
+  button: {
+    width: '100%',
+    height: 40,
+    backgroundColor: 'blue',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 5,
+    marginTop: 20,
   },
 });
 

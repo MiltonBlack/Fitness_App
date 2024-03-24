@@ -1,4 +1,4 @@
-import { Image, StyleSheet, Text, TouchableOpacity, ScrollView } from 'react-native'
+import { Image, StyleSheet, Text, TouchableOpacity, ScrollView, View } from 'react-native'
 import React from 'react'
 import { NavigationProp } from '@react-navigation/native'
 
@@ -7,10 +7,15 @@ const Home = ({ navigation }: any) => {
   function Navigate(route: string) {
     navigation.navigate(`${route}`);
   }
-  
+
   return (
     <ScrollView style={styles.container}>
-      <Text style={styles.title}>Home Workouts</Text>
+      <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: '100%', marginBottom: 10 }}>
+        <View style={{ height: 30, width: 30, borderRadius: 15, backgroundColor: '#a1c4e7', alignItems: 'center', justifyContent: 'center' }}>
+          <Text style={{ color: 'black', fontSize: 17, fontWeight: '700' }}>MA</Text>
+        </View>
+        <Text style={styles.title}>Home Workouts</Text>
+      </View>
       <TouchableOpacity style={styles.workoutCard} onPress={() => Navigate('pushups')}>
         <Image
           source={require('../assets/images/shoulders.jpg')}

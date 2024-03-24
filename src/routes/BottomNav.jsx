@@ -3,7 +3,7 @@ import React from 'react'
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Home from '../screens/Home';
-import Profile from '../screens/Profile';
+import SettingScreen from '../screens/Setting';
 import Report from '../screens/Report';
 import AdminExercise from '../screens/AdminExercise';
 import Feeds from '../screens/Feeds';
@@ -54,7 +54,7 @@ const BottomNav = () => {
                         return (
                             <View style={{ alignItems: "center", justifyContent: "center" }}>
                                 <MaterialCommunityIcons
-                                    name={'news'}
+                                    name={'shield'}
                                     size={24}
                                     color={focused ? '#A0015D' : 'grey'}
                                 />
@@ -101,8 +101,8 @@ const BottomNav = () => {
                         )
                     }
                 }} />
-            <Tab.Screen name='Profile'
-                component={Profile}
+            <Tab.Screen name='Setting'
+                component={SettingScreen}
                 options={{
                     tabBarIcon: ({ focused }) => {
                         return (
