@@ -15,7 +15,7 @@ const Exercise = () => {
         setCount(count + 1);
     }
     return (
-        <View style={styles.container}>
+        <View style={styles.exerciseContainer}>
             <Image source={require('../assets/icons/weights.png')} style={{ height: 270, width: '100%' }} />
             <Text style={styles.exerciseName}>{item.workout}</Text>
             <Text style={styles.execiseType}>Heel Touch</Text>

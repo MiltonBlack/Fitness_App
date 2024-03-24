@@ -4,11 +4,11 @@ import { useAuth } from '../../utils/ContextAPI'
 import { styles } from '../../styles/Admin'
 
 const DeleteCategory: React.FC = () => {
-  const { GetCategory, categories, RemoveCategory, GetWorkouts, workouts } = useAuth();
+  const { GetCategories, categories, RemoveCategory, GetWorkouts, workouts } = useAuth();
 
   useEffect(() => {
     GetWorkouts();
-    GetCategory();
+    GetCategories();
   }, []);
 
   return (

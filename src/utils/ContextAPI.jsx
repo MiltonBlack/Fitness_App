@@ -223,6 +223,7 @@ function ContextProvider({ children }) {
         setUser,
         setInfo,
         storeData,
+        setIsAdmin,
         retrieveData,
         deleteData,
         SignUp,

@@ -3,7 +3,6 @@ import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-nativ
 import { useAuth } from '../utils/ContextAPI';
 
 const SignUpScreen: React.FC = ({ navigation }: any) => {
-  // const navigation = useNavigation();
   const { SignUp } = useAuth();
   const [userName, setUserName] = useState<string>('');
   const [email, setEmail] = useState<string>('');
@@ -14,7 +13,7 @@ const SignUpScreen: React.FC = ({ navigation }: any) => {
     // console.log('Email:', email);
     // console.log('Password:', password);
     userName !== '' && email !== '' && password !== '' && await SignUp(userName, email, password);
-    navigation.navigate('login') 
+    navigation.navigate('login')
   };
 
   return (
@@ -44,6 +43,10 @@ const SignUpScreen: React.FC = ({ navigation }: any) => {
       <TouchableOpacity style={styles.button} onPress={handleSignUp}>
         <Text style={styles.buttonText}>Sign Up</Text>
       </TouchableOpacity>
+      <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', marginTop: 5 }}>
+        <Text style={{ color: 'black' }}>Already have an account? </Text>
+        <Text style={{ color: 'blue', fontWeight: '700' }} onPress={() => navigation.navigate('login')}>Login</Text>
+      </View>
     </View>
   );
 };

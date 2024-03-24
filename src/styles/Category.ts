@@ -24,7 +24,8 @@ export const styles = StyleSheet.create({
       flexDirection: 'column',
       marginHorizontal: 9,
       marginBottom: 5,
-      fontSize:25
+      fontSize:25,
+      width:'100%'
     },
     exerciseName:{
       color:'black',
@@ -41,5 +42,12 @@ export const styles = StyleSheet.create({
     },
     container:{
       flex: 1
+    },
+    exerciseContainer:{
+      flex:1,
+      flexDirection:'column',
+      alignItems:'center',
+      justifyContent:'space-between',
+      height:'100%'
     }
   })
