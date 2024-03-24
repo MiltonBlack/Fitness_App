@@ -8,7 +8,7 @@ import { styles } from '../styles/Category'
 
 export default function Planks({ navigation }) {
   const renderItem = ({ item }) => (
-    <TouchableOpacity onPress={() => navigation.navigate('trainingdetailed', { image: item.image, workout: item.workout })}>
+    <TouchableOpacity onPress={() => navigation.navigate('trainingdetailed', { image: item.image, workout: item.workout, desc: item.description, duration: item.duration, repeats: item.repeats })}>
       <Workout item={item} key={item.id} image={item.image} work={item.workout} />
     </TouchableOpacity>
   )

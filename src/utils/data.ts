@@ -232,7 +232,7 @@ export const data: IData[] = [
     },
     {
       categoryId: '',
-      id: 22,
+      id: 23,
       image: require('../assets/icons/backPlanck.png'),
       workout: 'Bodyweight Squats',
       description:'Engages the quadriceps, hamstrings, glutes, and calves, promoting lower body strength and endurance.',
@@ -242,7 +242,7 @@ export const data: IData[] = [
     },
     {
       categoryId: '',
-      id: 23,
+      id: 24,
       image: require('../assets/icons/backPlanck.png'),
       workout: 'Planks',
       description:'Engages the core muscles (abdominals, obliques, and lower back), promoting core strength and stability.',
@@ -252,7 +252,7 @@ export const data: IData[] = [
     },
     {
       categoryId: '',
-      id: 24,
+      id: 25,
       image: require('../assets/icons/backPlanck.png'),
       workout: 'Bicycle Crunches',
       description:'Targets the abdominal muscles (rectus abdominis and obliques), while also engaging the hip flexors and stabilizer muscles.',
@@ -262,7 +262,7 @@ export const data: IData[] = [
     },
     {
       categoryId: '',
-      id: 25,
+      id: 26,
       image: require('../assets/icons/backPlanck.png'),
       workout: 'Hanging Leg Raises',
       description:'Works the abdominal muscles, particularly the lower abs, as well as engaging the hip flexors and grip strength.',
@@ -272,7 +272,7 @@ export const data: IData[] = [
     },
     {
       categoryId: '',
-      id: 26,
+      id: 27,
       image: require('../assets/icons/backPlanck.png'),
       workout: 'Handstand Push-Ups',
       description:'Targets the shoulders, triceps, and upper chest, while also engaging the core muscles for balance.',

@@ -3,14 +3,14 @@ import { View, Text, ImageBackground, StyleSheet } from 'react-native';
 import { useAuth } from '../utils/ContextAPI';
 
 const WelcomeScreen = ({ navigation }) => {
-  const { retrieveData, data } = useAuth();
+  const { retrieveData, info } = useAuth();
 
   useEffect(()=> {
     retrieveData();
   },[])
 
   setTimeout(() => {
-    data !== null ? navigation.replace('bottomnav') : navigation.replace('onboarding');
+    info !== null ? navigation.replace('bottomnav') : navigation.replace('onboarding');
   }, 3000);
 
   return (

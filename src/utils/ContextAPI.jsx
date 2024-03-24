@@ -12,7 +12,7 @@ function ContextProvider({ children }) {
     const [user, setUser] = useState();
     const [isAdmin, setIsAdmin] = useState(true);
     const [isLoading, setIsLoading] = useState(false);
-    const [data, setData] = useState(null);
+    const [info, setInfo] = useState(null);
     const [error, setError] = useState(null);
     const [token, setToken] = useState(null);
     const [categories, setCategories] = useState(null);
@@ -30,7 +30,7 @@ function ContextProvider({ children }) {
             const currentUser = JSON.parse(savedUser);
             const currentToken = JSON.parse(savedToken);
             const currentData = JSON.parse(saved);
-            setData(currentData);
+            setInfo(currentData);
             setUser(currentUser);
             setToken(currentToken);
         } catch (error) {
@@ -214,14 +214,14 @@ function ContextProvider({ children }) {
 
     values = {
         user,
-        data,
+        info,
         isLoading,
         error,
         isAdmin,
         workouts,
         categories,
         setUser,
-        setData,
+        setInfo,
         storeData,
         retrieveData,
         deleteData,

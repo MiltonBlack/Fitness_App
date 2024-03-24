@@ -37,7 +37,7 @@ const Onboarding = ({ navigation }) => {
             ) : Object.keys(userData).length === 4 ? (
                 <Goal onSelect={handleSelect} />
             ) : (
-                <TouchableOpacity style={styles.complete} onPress={() => navigation.navigate('signup')}>
+                <TouchableOpacity style={styles.complete} onPress={handleComplete}>
                     <Text style={{ color: 'white', fontSize: 15, fontWeight: 'bold' }}>Complete</Text>
                 </TouchableOpacity>
             )}

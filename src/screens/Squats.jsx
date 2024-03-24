@@ -8,7 +8,7 @@ import { data } from '../utils/data'
 
 export default function Squats({ navigation }) {
   const renderItem = ({ item }) => (
-    <TouchableOpacity onPress={() => navigation.navigate('trainingdetailed', { image: item.image, workout: item.workout })}>
+    <TouchableOpacity onPress={() => navigation.navigate('trainingdetailed', { image: item.image, workout: item.workout, desc: item.description, duration: item.duration, repeats: item.repeats })}>
       <Workout item={item} key={item.id} image={item.image} work={item.workout} />
     </TouchableOpacity>
   )
@@ -18,8 +18,8 @@ export default function Squats({ navigation }) {
       <Text style={styles.header}>Squats</Text>
       <WorkoutImg />
       <FlatList data={data} renderItem={renderItem} keyExtractor={data.id} ItemSeparatorComponent={Seperator} />
-      <TouchableOpacity style={styles.start} onPress={()=> navigation.goBack()}>
-        <Text style={{ color: 'white', fontSize: 15, fontWeight:'bold' }}>Start</Text>
+      <TouchableOpacity style={styles.start} onPress={() => navigation.goBack()}>
+        <Text style={{ color: 'white', fontSize: 15, fontWeight: 'bold' }}>Start</Text>
       </TouchableOpacity>
     </View>
   )

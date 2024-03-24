@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { View, Text, Switch, StyleSheet, TouchableOpacity } from 'react-native';
+import { useAuth } from '../utils/ContextAPI';
 
 const SettingsScreen = ({ navigation }: any) => {
+  const { deleteData } = useAuth();
   const [notificationsEnabled, setNotificationsEnabled] = useState(true);
   const [darkModeEnabled, setDarkModeEnabled] = useState(false);
 
@@ -12,6 +14,11 @@ const SettingsScreen = ({ navigation }: any) => {
   const toggleDarkMode = () => {
     setDarkModeEnabled(previousState => !previousState);
   };
+
+  async function Logout() {
+    await deleteData();
+    navigation.replace('welcome');
+  }
 
   return (
     <View style={styles.container}>
@@ -36,11 +43,15 @@ const SettingsScreen = ({ navigation }: any) => {
         />
       </View>
       <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Edit Profile</Text>
         <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Profile')}>
-          <Text style={styles.sectionTitle}>Edit Profile</Text>
+          <Text style={{ color: 'white', fontSize: 20 }}>Edit Profile</Text>
         </TouchableOpacity>
       </View>
+      <Text style={styles.sectionTitle}>Name: Favour Oghechi</Text>
+      <Text style={styles.sectionTitle}>Email: FavourOghechi@gmail.com</Text>
+        <TouchableOpacity style={styles.button} onPress={Logout}>
+          <Text style={{ color: 'white', fontSize: 20 }}>Logout</Text>
+        </TouchableOpacity>
     </View>
   );
 };
@@ -50,6 +61,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 20,
     paddingTop: 50,
+    backgroundColor: '#a0b1c2',
   },
   section: {
     flexDirection: 'row',
@@ -59,6 +71,7 @@ const styles = StyleSheet.create({
   },
   sectionTitle: {
     fontSize: 20,
+    color: 'black'
   },
   button: {
     width: '100%',
@@ -68,6 +81,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 5,
     marginTop: 20,
+    color: 'white'
   },
 });
 

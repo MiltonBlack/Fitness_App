@@ -11,10 +11,10 @@ const Home = ({ navigation }: any) => {
   return (
     <ScrollView style={styles.container}>
       <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: '100%', marginBottom: 10 }}>
-        <View style={{ height: 30, width: 30, borderRadius: 15, backgroundColor: '#a1c4e7', alignItems: 'center', justifyContent: 'center' }}>
-          <Text style={{ color: 'black', fontSize: 17, fontWeight: '700' }}>MA</Text>
+        <View style={{ height: 50, width: 50, borderRadius: 25, backgroundColor: '#a1c4e7', alignItems: 'center', justifyContent: 'center' }}>
+          <Text style={{ color: 'black', fontSize: 17, fontWeight: '700' }}>FO</Text>
         </View>
-        <Text style={styles.title}>Home Workouts</Text>
+        <Text style={styles.title}>Favour Oghechi</Text>
       </View>
       <TouchableOpacity style={styles.workoutCard} onPress={() => Navigate('pushups')}>
         <Image

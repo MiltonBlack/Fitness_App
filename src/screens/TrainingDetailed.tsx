@@ -10,11 +10,12 @@ type Props = {
 function TrainingDetailed({ route, navigation }: Props) {
   let image = route?.params?.image;
   let heading = route?.params?.workout;
+  let description = route?.params?.desc;
   return (
     <ScrollView style={styles.container}>
       <Image source={image} style={{ width: '100%', height: 250, marginBottom: 10 }} />
       <Text style={styles.heading}>{heading}</Text>
-      <Text style={styles.description}>description</Text>
+      <Text style={styles.description}>{description}</Text>
       <Text style={styles.focusAreaHead}>Focus Area</Text>
       <View style={{ flexDirection: 'row', flexWrap: 'wrap', paddingBottom: 14 }}>
         <View style={styles.focusArea}>

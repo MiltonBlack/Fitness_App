@@ -30,7 +30,7 @@ export const styles = StyleSheet.create({
   },
   optionText: {
     fontSize: 18,
-    color: 'white',
+    color: 'black',
     fontWeight: '800'
   },
   complete: {

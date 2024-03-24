@@ -13,7 +13,7 @@ type Props = {
 
 const Yoga = ({ navigation }: Props) => {
   const renderItem = ({ item }: any) => (
-    <TouchableOpacity onPress={() => navigation.navigate('trainingdetailed', { image: item.image, workout: item.workout })}>
+    <TouchableOpacity onPress={() => navigation.navigate('trainingdetailed', { image: item.image, workout: item.workout, desc: item.description, duration: item.duration, repeats: item.repeats })}>
       <Workout item={item} key={item.id} />
     </TouchableOpacity>
   )
