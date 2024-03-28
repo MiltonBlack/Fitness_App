@@ -16,29 +16,29 @@ const Home = ({ navigation }: any) => {
         </View>
         <Text style={styles.title}>Favour Oghechi</Text>
       </View>
-      <TouchableOpacity style={styles.workoutCard} onPress={() => Navigate('pushups')}>
+      <TouchableOpacity style={styles.workoutCard} onPress={() => Navigate('personnalized')}>
         <Image
           source={require('../assets/images/shoulders.jpg')}
           style={styles.workoutImage}
         />
         <Text style={styles.workoutTitle}>Push-ups</Text>
-        <Text style={styles.workoutDescription}>Target: Chest, Shoulders, Triceps</Text>
+        <Text style={styles.workoutDescription}>Customized just for You</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.workoutCard} onPress={() => Navigate('squats')}>
+      <TouchableOpacity style={styles.workoutCard} onPress={() => Navigate('bodybuilding')}>
         <Image
           source={require('../assets/images/glutes-1.jpg')}
           style={styles.workoutImage}
         />
-        <Text style={styles.workoutTitle}>Squats</Text>
-        <Text style={styles.workoutDescription}>Target: Quads, Hamstrings, Glutes</Text>
+        <Text style={styles.workoutTitle}>Body Building and Fitness</Text>
+        <Text style={styles.workoutDescription}>Target: Full Body</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.workoutCard} onPress={() => Navigate('planks')}>
+      <TouchableOpacity style={styles.workoutCard} onPress={() => Navigate('hiit')}>
         <Image
           source={require('../assets/images/muscles.jpg')}
           style={styles.workoutImage}
         />
-        <Text style={styles.workoutTitle}>Plank</Text>
-        <Text style={styles.workoutDescription}>Target: Core muscles</Text>
+        <Text style={styles.workoutTitle}>High Intensive Training</Text>
+        <Text style={styles.workoutDescription}>Target: Chest, Arms and Core muscles</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.workoutCard} onPress={() => Navigate('buttnhips')}>
         <Image
@@ -47,6 +47,14 @@ const Home = ({ navigation }: any) => {
         />
         <Text style={styles.workoutTitle}>Butt and Hips</Text>
         <Text style={styles.workoutDescription}>Target: Butt, Hips and Back</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.workoutCard} onPress={() => Navigate('equipment')}>
+        <Image
+          source={require('../assets/images/ButtnHips.jpg')}
+          style={styles.workoutImage}
+        />
+        <Text style={styles.workoutTitle}>Equipment Training</Text>
+        <Text style={styles.workoutDescription}>Target: Full Body</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.workoutCard} onPress={() => Navigate('yoga')}>
         <Image

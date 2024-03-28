@@ -12,6 +12,7 @@ function ContextProvider({ children }) {
     const [user, setUser] = useState();
     const [isAdmin, setIsAdmin] = useState(true);
     const [isLoading, setIsLoading] = useState(false);
+    const [success, setSuccess] = useState(false);
     const [info, setInfo] = useState(null);
     const [error, setError] = useState(null);
     const [token, setToken] = useState(null);
@@ -68,6 +69,7 @@ function ContextProvider({ children }) {
 
     async function SignUp(userName, email, password) {
         setIsLoading(true);
+        setSuccess(false);
         const data = {
             userName,
             email,
@@ -78,6 +80,7 @@ function ContextProvider({ children }) {
             await axios.post(`${auth_url}` + '/signup', data).then(res => {
                 if (res.data) {
                     setIsLoading(false);
+                    setSuccess(true);
                     console.log(res.data)
                 }
             }).catch(err => setError(err));
@@ -89,6 +92,7 @@ function ContextProvider({ children }) {
 
     async function SignIn(email, password) {
         setIsLoading(true);
+        setSuccess(false);
         const data = {
             email,
             password
@@ -96,6 +100,7 @@ function ContextProvider({ children }) {
         try {
             await axios.post(`${auth_url}` + '/signin', data).then(res => {
                 if (res.data) {
+                    setSuccess(true);
                     setUser(res.data);
                     setToken(res.data.token);
                     setIsAdmin(res.data.isAdmin);
@@ -220,6 +225,7 @@ function ContextProvider({ children }) {
         isAdmin,
         workouts,
         categories,
+        success,
         setUser,
         setInfo,
         storeData,

@@ -1,16 +1,53 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, ActivityIndicator } from 'react-native';
+import Toast from 'react-native-toast-message';
+import { useAuth } from '../utils/ContextAPI';
 
 const LoginScreen: React.FC = ({ navigation }: any) => {
+    const { SignIn, isLoading, success, error } = useAuth();
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
 
-    const handleLogin = () => {
+    const handleLogin = async () => {
         // Implement login logic here
         console.log('Email:', email);
         console.log('Password:', password);
-        navigation.navigate('bottomnav');
+        if (email === '' && password === '') {
+            showWarningToast();
+        } else if (email === '' || password === '') {
+            showWarningToast();
+        } else {
+            await SignIn(email, password);
+        }
+        success ? showSuccessToast() : showErrorToast();
+        success && setTimeout(() => {
+            navigation.replace('bottomnav');
+        }, 2500);
     };
+
+    function showSuccessToast() {
+        Toast.show({
+            type: 'success',
+            text1: 'Success',
+            text2: 'Account created sucessfully!!'
+        })
+    }
+
+    function showErrorToast() {
+        Toast.show({
+            type: 'error',
+            text1: 'Error',
+            text2: error
+        })
+    }
+
+    function showWarningToast() {
+        Toast.show({
+            type: 'error',
+            text1: 'Error',
+            text2: 'Input Fields cannot be left blank!!!'
+        })
+    }
 
     return (
         <View style={styles.container}>
@@ -31,11 +68,11 @@ const LoginScreen: React.FC = ({ navigation }: any) => {
                 secureTextEntry
             />
             <TouchableOpacity style={styles.button} onPress={handleLogin}>
-                <Text style={styles.buttonText}>Login</Text>
+                {isLoading ? <ActivityIndicator size={10} color={'#fff'} /> : <Text style={styles.buttonText}>Login</Text>}
             </TouchableOpacity>
             <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', marginTop: 5 }}>
                 <Text style={{ color: 'black' }}>Don't have an account? </Text>
-                <Text style={{ color: 'blue', fontWeight:'700' }} onPress={() => navigation.navigate('signup')}>Create One</Text>
+                <Text style={{ color: 'blue', fontWeight: '700' }} onPress={() => navigation.navigate('signup')}>Create One</Text>
             </View>
         </View>
     );
@@ -67,7 +104,7 @@ const styles = StyleSheet.create({
     },
     button: {
         width: '100%',
-        height: 40,
+        height: 50,
         backgroundColor: 'blue',
         justifyContent: 'center',
         alignItems: 'center',

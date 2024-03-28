@@ -4,9 +4,9 @@ import WelcomeScreen from '../screens/Welcome';
 import SignUpScreen from '../screens/SignUp';
 import LoginScreen from '../screens/Login';
 import BottomNav from './BottomNav';
-import PushUps from '../screens/PushUps';
-import Squats from '../screens/Squats';
-import Planks from '../screens/Planks';
+import Personnalized from '../screens/Personnalized';
+import BodyBuilding from '../screens/BodyBuilding';
+import HIIT from '../screens/HIIT';
 import ButtNHips from '../screens/ButtNHips';
 import Yoga from '../screens/Yoga';
 import Onboarding from '../screens/Onboarding';
@@ -20,6 +20,7 @@ import DeleteCategory from '../screens/Admin/DeleteCategory';
 import DeleteWorkouts from '../screens/Admin/DeleteWorkouts';
 import AdminExercise from '../screens/AdminExercise';
 import Profile from '../screens/Profile'
+import Equipment from '../screens/Equipment'
 
 const Stack = createNativeStackNavigator();
 const StackNav = () => {
@@ -45,9 +46,10 @@ const StackNav = () => {
       <Stack.Screen name='welcome' component={WelcomeScreen} />
       <Stack.Screen name='signup' component={SignUpScreen} />
       <Stack.Screen name='login' component={LoginScreen} />
-      <Stack.Screen name='pushups' component={PushUps} />
-      <Stack.Screen name='squats' component={Squats} />
-      <Stack.Screen name='planks' component={Planks} />
+      <Stack.Screen name='personnalized' component={Personnalized} />
+      <Stack.Screen name='bodybuilding' component={BodyBuilding} />
+      <Stack.Screen name='equipment' component={Equipment} />
+      <Stack.Screen name='hiit' component={HIIT} />
       <Stack.Screen name='buttnhips' component={ButtNHips} />
       <Stack.Screen name='yoga' component={Yoga} />
       <Stack.Screen name='bottomnav' component={BottomNav} />

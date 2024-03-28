@@ -6,21 +6,22 @@ import Seperator from '../components/Seperator'
 import { styles } from '../styles/Category'
 import { data } from '../utils/data'
 import { useAuth } from '../utils/ContextAPI'
+import Button from '../components/Button'
 
-const PushUps = ({ navigation }) => {
+const Personnalized = async ({ navigation }: any) => {
   const { info, retrieveData } = useAuth();
   useEffect(()=> {
-    retrieveData()
+    info === null && retrieveData()
   },[]);
-  async function filterData(filter) {
+  async function filterData(filter: string) {
     return data.filter(item => item.tags[0] === filter || item.tags[1] === filter || item.tags[1] === filter);
   }
   const filtered = filterData(info?.goal?.toLowerCase().toString());
   console.log(filtered);
 
-  const renderItem = ({ item }) => (
+  const renderItem = ({ item }: any) => (
     <TouchableOpacity onPress={() => navigation.navigate('trainingdetailed', { image: item.image, workout: item.workout, desc: item.description, duration: item.duration, repeats: item.repeats })}>
-      <Workout item={item} key={item.id} image={item.image} work={item.workout} />
+      <Workout item={item} key={item.id} />
     </TouchableOpacity>
   )
   return (
@@ -28,12 +29,13 @@ const PushUps = ({ navigation }) => {
       <Text style={styles.header}>Push Ups</Text>
       <WorkoutImg />
       {/* <FlatList data={filtered} renderItem={renderItem} keyExtractor={data.id} ItemSeparatorComponent={Seperator} refreshing={true}/> */}
-      {filtered.map((item, idx) => (
+      {(await filtered)?.map((item: any, idx: number) => (
         <TouchableOpacity onPress={() => navigation.navigate('trainingdetailed', { image: item.image, workout: item.workout, desc: item.description, duration: item.duration, repeats: item.repeats })}>
-        <Workout item={item} key={item.id} image={item.image} work={item.workout} />
+        <Workout item={item} key={item.id} />
       </TouchableOpacity>
       ))}
       <Seperator/>
+      {/* <Button to='exercise' data={filtered}/> */}
       <TouchableOpacity style={styles.start} onPress={() => navigation.navigate('exercise')}>
         <Text style={{ color: 'white', fontSize: 15, fontWeight: 'bold' }}>Start</Text>
       </TouchableOpacity>
@@ -41,4 +43,4 @@ const PushUps = ({ navigation }) => {
   )
 }
 
-export default PushUps
+export default Personnalized

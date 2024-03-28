@@ -21,7 +21,7 @@ const Onboarding = ({ navigation }) => {
         await storeData(userData);
         console.log(userData);
         // Assuming navigation to the home page upon completion
-        await navigation.navigate('signup');
+        await navigation.replace('signup');
     }
 
     return (
